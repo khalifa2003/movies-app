@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,15 +18,15 @@ export class MoviesService {
     }
   }
 
-  getMovies() {
+  getMovies(): Observable<any> {
     return this.http.get(`${this.URI}&language=en`);
   }
 
-  getMoviesSearch(word: string) {
+  getMoviesSearch(word: string): Observable<any> {
     return this.http.get(`${this.URI}&language=${this.language}&query=${word}`);
   }
 
-  getNextPage(page: number) {
+  getNextPage(page: number): Observable<any> {
     return this.http.get(`${this.URI}&language=${this.language}&page=${page}`);
   }
 }
