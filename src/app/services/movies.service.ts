@@ -5,22 +5,27 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class MoviesService {
+  language = 'en';
+  private URI =
+    'https://api.themoviedb.org/3/movie/popular?api_key=2cb53535aac3d21f2f18dd7397aa6297';
   constructor(private http: HttpClient) {}
+  changeLanguage() {
+    if (this.language === 'en') {
+      this.language = 'ar';
+    } else {
+      this.language = 'en';
+    }
+  }
 
   getMovies() {
-    return this.http.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=2cb53535aac3d21f2f18dd7397aa6297&language=en`
-    );
+    return this.http.get(`${this.URI}&language=en`);
   }
 
   getMoviesSearch(word: string) {
-    return this.http.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=2cb53535aac3d21f2f18dd7397aa6297&language=en&query=${word}`
-    );
+    return this.http.get(`${this.URI}&language=${this.language}&query=${word}`);
   }
-  getPage(page: number) {
-    return this.http.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=2cb53535aac3d21f2f18dd7397aa6297&language=en&page=1${page}`
-    );
+
+  getNextPage(page: number) {
+    return this.http.get(`${this.URI}&language=${this.language}&page=${page}`);
   }
 }
