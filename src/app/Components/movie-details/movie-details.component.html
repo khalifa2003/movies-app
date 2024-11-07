@@ -1,1 +1,39 @@
-<p>movie-details works!</p>
+<div class="container my-5">
+  <div
+    class="card-text-details d-flex align-items-center justify-content-center flex-wrap"
+  >
+    <img class="img-movie" [src]="getImage()" alt="" />
+    <div class="flex justify-content-center text-center mx-auto">
+      <p class="card-text-details border-bottom">
+        Movie Name: {{ movieDetails.original_title }}
+      </p>
+      <p class="card-text-details border-bottom">
+        Movie Date: {{ movieDetails.release_date }}
+      </p>
+      <p class="card-text-details border-bottom">
+        Ratings Count: {{ movieDetails.vote_count }}
+      </p>
+      <p class="card-text-details border-bottom">
+        Ratings: {{ movieDetails.vote_average }}
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="card-story d-flex flex-column align-items-start">
+      <div class="p-3">
+        <p class="card-text-title border-bottom">Story:</p>
+      </div>
+      <div class="px-2">
+        <p class="card-text-title">{{ movieDetails.overview }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center gap-5">
+    <a routerLink="/home">
+      <button class="btn btn-primary">Back To Home</button>
+    </a>
+    <a href="">
+      <button class="btn btn-success">Watch Movie</button>
+    </a>
+  </div>
+</div>

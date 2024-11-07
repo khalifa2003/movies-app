@@ -1,0 +1,27 @@
+.card-details {
+  height: 370px;
+  border-radius: 20px;
+  background-color: #000;
+}
+.card-story {
+  min-height: 300px;
+  border-radius: 20px;
+}
+.img-movie {
+  height: 360px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.card-text-details {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.card-text-story {
+  font-size: 18px;
+}
+.card-text-title {
+  font-size: 36px;
+  font-weight: bold;
+}

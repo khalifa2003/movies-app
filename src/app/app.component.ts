@@ -7,7 +7,6 @@ import { ThemeService } from './services/theme.service';
   styleUrls: ['./app.component.css'],
   template: `
     <button (click)="themeService.toggleTheme()">Toggle Dark Mode</button>
-    <!-- Rest of your component HTML -->
   `,
 })
 export class AppComponent {

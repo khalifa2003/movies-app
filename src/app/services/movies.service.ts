@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MoviesService {
   language = 'en';
+  page = 1;
   private URI =
     'https://api.themoviedb.org/3/movie/popular?api_key=2cb53535aac3d21f2f18dd7397aa6297';
   constructor(private http: HttpClient) {}
@@ -19,14 +20,24 @@ export class MoviesService {
   }
 
   getMovies(): Observable<any> {
-    return this.http.get(`${this.URI}&language=en`);
+    return this.http.get(`${this.URI}&language=${this.language}`);
   }
 
   getMoviesSearch(word: string): Observable<any> {
-    return this.http.get(`${this.URI}&language=${this.language}&query=${word}`);
+    return this.http.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=2cb53535aac3d21f2f18dd7397aa6297&query=${word}`
+    );
   }
 
-  getNextPage(page: number): Observable<any> {
-    return this.http.get(`${this.URI}&language=${this.language}&page=${page}`);
+  getPage(): Observable<any> {
+    return this.http.get(
+      `${this.URI}&language=${this.language}&page=${this.page}`
+    );
+  }
+
+  getMovieById(id: string): Observable<any> {
+    return this.http.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=2cb53535aac3d21f2f18dd7397aa6297`
+    );
   }
 }

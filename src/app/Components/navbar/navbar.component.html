@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0 z-3 w-100"
+>
+  <div class="container">
     <a class="navbar-brand" href="#">Navbar</a>
     <button
       class="navbar-toggler"
@@ -15,10 +17,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -37,9 +36,6 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
       </ul>
       <form class="d-flex" role="search">
         <input
@@ -47,9 +43,25 @@
           type="search"
           placeholder="Search"
           aria-label="Search"
+          (input)="onSearch($event)"
         />
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
+  </div>
+  <div
+    *ngIf="searchResults.length > 0 && search !== ''"
+    class="search-results dark-theme"
+  >
+    <ul>
+      <li *ngFor="let movie of searchResults">
+        <a (click)="search = ''" routerLink="/movie/{{ movie.id }}">
+          <img [src]="getImage(movie)" alt="{{ movie.title }}" />
+          <div>
+            <h4>{{ movie.title }}</h4>
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>

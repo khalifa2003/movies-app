@@ -48,3 +48,8 @@ body.dark-theme .navbar {
 body.dark-theme .navbar a {
   color: #ffffff !important;
 }
+
+body.dark-theme .navbar .search-results {
+  color: #ffffff !important;
+  background-color: #1e1e1e;
+}

@@ -18,6 +18,8 @@ import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { MessageService } from 'primeng/api';
     MoviesListComponent,
     MyPaginationComponent,
     NavbarComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { MessageService } from 'primeng/api';
     InputTextModule,
     MenubarModule,
     ToastModule,
+    PaginatorModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
